@@ -1,0 +1,83 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --clr-dark-grey: #2b2640;
+  --clr-text: #d4d4d4;
+  --clr-background: #161524;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--clr-text);
+  background-color: var(--clr-background);
+  padding: 2rem;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.3;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.website-title {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.big-cats {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  gap: 2rem;
+}
+
+.big-cat {
+  background-color: var(--clr-dark-grey);
+  padding: 2rem;
+  border-radius: 4px;
+
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 15rem 1fr;
+}
+
+@media only screen and (max-width: 500px) {
+  .big-cat {
+    grid-template-columns: 1fr;
+  }
+}
+
+.big-cat-title {
+  margin-bottom: 1rem;
+}
+
+.image {
+  border-radius: 4px;
+  width: 100%;
+}
+
+.big-cat-title {
+  font-size: 2.2rem;
+}

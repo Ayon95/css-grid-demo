@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --clr-primary: #3e2c99;
+  --clr-text: #fff;
+  --clr-background: #161524;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  color: var(--clr-text);
+  background-color: var(--clr-background);
+  padding: 2rem;
+}
+
+.heading {
+  margin-bottom: 2rem;
+}
+
+.section:not(:last-of-type) {
+  margin-bottom: 5rem;
+}
+
+/* container */
+
+.container {
+  background-color: #2b2640;
+  border-radius: 4px;
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+/* item */
+
+.item {
+  padding: 2rem;
+  border-radius: 4px;
+  background-color: var(--clr-primary);
+  display: grid;
+  place-content: center;
+}
+
+/* container-1 */
+
+.container-1 {
+  grid-template-columns: repeat(5, 1fr 2fr);
+  grid-template-rows: repeat(10, 50px);
+}
+
+.item-1 {
+  grid-column: 3 / 5;
+}
+
+.item-2 {
+  grid-column: 5 / -1;
+}
+
+.item-5 {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.item-8 {
+  grid-row: span 2;
+}
+
+.item-15 {
+  grid-column: 1 / -1;
+}
+
+.item-18 {
+  grid-column: span 4 / 9;
+}
+
+.item-20 {
+  grid-row: 4 / span 3;
+}
+
+/* container-2 */
+
+.container-2 {
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
+
+/* container-3 */
+
+.container-3 {
+  grid-template-columns: 2fr 5fr 2fr;
+  grid-template-rows: repeat(3, 15rem);
+  grid-template-areas:
+    "sidebar-1 main-content sidebar-2"
+    "sidebar-1 main-content sidebar-2"
+    "footer footer footer";
+}
+
+/* 700px */
+@media only screen and (max-width: 43.75em) {
+  .container-3 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "main-content main-content"
+      "sidebar-1 sidebar-2"
+      "footer footer";
+  }
+}
+
+.sidebar-1 {
+  grid-area: sidebar-1;
+}
+
+.sidebar-2 {
+  grid-area: sidebar-2;
+}
+
+.main-content {
+  grid-area: main-content;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+/* container-4 */
+
+.container-4 {
+  grid-template-columns: [grid-start] 2fr 1fr [grid-end];
+  grid-template-rows: [grid-top] 15rem [header-end] 15rem 15rem [grid-end];
+}
+
+.header {
+  grid-column: grid-start / grid-end;
+}
+
+.content {
+  grid-row: header-end / grid-end;
+}
+
+.sidebar {
+  grid-row: header-end / grid-end;
+}
