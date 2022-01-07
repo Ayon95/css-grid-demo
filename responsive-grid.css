@@ -1,0 +1,93 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --spacing: 2rem;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.7rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: var(--spacing);
+}
+
+.main__title {
+  text-align: center;
+}
+
+.section {
+  padding: var(--spacing);
+  border: solid;
+  border-radius: 4px;
+  margin-top: var(--spacing);
+}
+
+.section__title {
+  text-align: center;
+  margin-bottom: var(--spacing);
+}
+
+.section__items {
+  list-style: none;
+  display: grid;
+  gap: var(--spacing);
+  /* this will center the grid horizontally */
+  justify-content: center;
+}
+
+.section__items--media-queries {
+  grid-template-columns: repeat(3, 30rem);
+}
+
+.section__items--no-media-queries {
+  /* - with auto-fit, grid will try to fit as many columns as possible (empty columns will be collapsed)
+     - each column cannot be more than 30rem wide and cannot be less than 15rem wide
+     - this way, we can create responsive grids without using any media queries
+  */
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 30rem));
+}
+
+.section__item {
+  background-color: lightblue;
+  border-radius: 4px;
+  height: 20rem;
+  /* just to center its content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Media queries */
+
+/* 64 * 16px = 1024px */
+@media only screen and (max-width: 64em) {
+  .section__items--media-queries {
+    /* going from 3 columns to 2 columns */
+    grid-template-columns: repeat(2, 30rem);
+  }
+}
+/* 43.75 * 16px = 700px */
+@media only screen and (max-width: 43.75em) {
+  /* going from 2 columns to 1 column that's 30rem wide */
+  .section__items--media-queries {
+    grid-template-columns: 30rem;
+  }
+}
+
+/* 23.75 * 16px = 380px */
+@media only screen and (max-width: 23.75em) {
+  /* going from 2 columns to a single column that will occupy all the available space */
+  .section__items--media-queries {
+    grid-template-columns: 1fr;
+  }
+}
